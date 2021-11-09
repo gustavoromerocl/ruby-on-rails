@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get "articles/new", to: "articles#new" #controlador/accion
   get "articles/:id", to: "articles#show" 
   get "articles/:id/edit", to: "articles#edit"
-  patch "/articles/:id", to: "articles#update", as: :article
+  patch "articles/:id", to: "articles#update", as: :article
+  delete "articles/:id", to: "articles#destroy"
 
   post "articles", to: "articles#create"
 end
