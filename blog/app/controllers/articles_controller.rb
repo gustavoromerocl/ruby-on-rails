@@ -1,7 +1,11 @@
 class ArticlesController < ApplicationController
 
-    before_action :find_article, except: [:new, :create] #only:[:show,:edit,:update,:destroy]
+    before_action :find_article, except: [:new, :create, :index] #only:[:show,:edit,:update,:destroy]
     #after_action 
+
+    def index
+        @articles = Article.all
+    end
 
     def show
     end
