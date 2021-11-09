@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
     #after_action 
 
     def show
-    ends
+    end
 
     def new 
         @article = Article.new #envia un articulo nuevo al formlario de la vista
