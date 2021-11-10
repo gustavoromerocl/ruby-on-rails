@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get "/bienvenida", to: "home#index"
+  # get "/bienvenida", to: "home#index"
 
-  root to: "articles#index"
+  root to: "home#index"
 
   get "articles", to: "articles#index"
   get "articles/new", to: "articles#new", as: :new_articles #controlador/accion
