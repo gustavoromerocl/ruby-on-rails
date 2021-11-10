@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
     before_action :find_article, except: [:new, :create, :index] #only:[:show,:edit,:update,:destroy]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
     #after_action 
 
     def index
