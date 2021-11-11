@@ -114,3 +114,9 @@ considerando los visto anteriormente, usando las @variables dentro de las vistas
 @article.user -> muesta el usuario al que pertenece
 @user.articles -> muestra los articulos que fueron generados por el usuario
 
+# parametros fuertes
+
+**buenas prácticas**
+
+params.require(:article).permit(:title, :content) -> convencion que corrige vulnerabilidad en el envío de formularios, indicando que parametros puede recibir la petición, los que no esten indicados rails no los considerará.
+

@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        @article = current_user.articles.create(title: params[:article][:title], content: params[:article][:content])
+        @article = current_user.articles.create(article_params) #title: params[:article][:title], content: params[:article][:content]
 =begin
         @article = Article.create(title: params[:article][:title], 
                                   content: params[:article][:content],
@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
     end
 
     def update
-        @article.update(title: params[:article][:title], content: params[:article][:content])
+        @article.update(article_params) #title: params[:article][:title], content: params[:article][:content]
         
         redirect_to @article
     end
@@ -49,4 +49,9 @@ class ArticlesController < ApplicationController
     def from_author
         @user = User.find(params[:user_id])
     end 
+
+    #parametros fuertes
+    def article_params
+        params.require(:article).permit(:title, :content)
+    end
 end
