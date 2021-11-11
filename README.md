@@ -61,5 +61,30 @@ after_action :method -> ejecuta el callback despues de las acciones en el contro
 except: [acciones] -> excepciona las acciones pasadas en el arreglo
 only: [acciones] -> solo realiza en las acciones indicadas
 
+# autenticación de usuarios
 
+**instalar devise**
 
+gem 'devise' -> gema de autenticación seguido de bundle install para instalar
+rails generate devise:install -> ejecuta configuracion de devise
+
+**tabla de usuarios**
+ 
+rails generate devise User -> crea el modelo de usuario con sus configuraciones predeterminadas seguido de rails db:migrate para crear las tablas en la base de datos
+rutas -> users/sing_in .. users/sing_up
+
+**trabajar con la sesión actual**
+
+user_signed_in? -> retorna true si la sesión esta iniciada
+new_user_regustration_path -> ruta de registro
+new_user_session_path -> ruta de inicio de sesión
+destroy_user_session_path, method: delete -> ruta para cerrar sesion de devise
+current_user.attribute -> accede al usuario actual de la sesión y sus atributos
+
+**proteger rutas con login**
+before_action :authenticate_user! -> valida que la sesión este iniciada antes de acceder al recurso
+
+**modificar formularios de autenticación**
+rails generate devise:views -> trae las vistas de devise para trabajarlas de manera local
+/session/ -> vista de inicio de sesion
+/registration/ -> vista de registro
