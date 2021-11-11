@@ -102,3 +102,7 @@ has_many :articles -> especifica que tabla le pertene
 
 var_articles.user -> muesta el usuario al que pertenece
 var_user.articles -> muestra los articulos que fueron generados por el usuario
+
+**guardar autor de un artículo**
+
+current_user.articles.create -> accede al metodo create mediante el usuario actual, considerando que para crear un nuevo articulo está la restriccion de que debe haber una sesion iniciada.

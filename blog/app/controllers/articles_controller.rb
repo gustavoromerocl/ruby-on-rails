@@ -16,8 +16,14 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        @article = Article.create(title: params[:article][:title], content: params[:article][:content])
+        @article = current_user.articles.create(title: params[:article][:title], content: params[:article][:content])
+=begin
+        @article = Article.create(title: params[:article][:title], 
+                                  content: params[:article][:content],
+                                  user: current_user)
         render json: @article
+=end
+        redirect_to @article
     end
 
     def edit
