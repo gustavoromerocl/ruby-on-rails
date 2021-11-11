@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-    before_action :find_article, except: [:new, :create, :index] #only:[:show,:edit,:update,:destroy]
+    before_action :find_article, except: [:new, :create, :index, :from_author] #only:[:show,:edit,:update,:destroy]
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
     #after_action 
 
@@ -46,4 +46,7 @@ class ArticlesController < ApplicationController
         #puts "ESTOY EN FIND ARTICLE"
     end
    
+    def from_author
+        @user = User.find(params[:user_id])
+    end 
 end
