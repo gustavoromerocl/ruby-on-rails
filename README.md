@@ -94,3 +94,11 @@ rails generate devise:views -> trae las vistas de devise para trabajarlas de man
 **relacion entre usuarios y artículos**
 
 rails generate migration add_user_id_to_articles user:references -> crea un archivo de migracion para crear la relación de uno a muchos entre la tabla user y articles, según la convención el nombre de la migracion debe especificar el id de la tabla y al final el modelo que pertenece a dicha tabla en plural (en plural). Por ultimo especificar el modelo y la palabra reservada references. (no olvidar ejecutar rails db:migrate para confirmar los cambios en el modelo)
+
+**configurar relacion en los modelos**
+
+belongs_to :user -> especifica de donde esta heredando el campo o a quien le pertenece
+has_many :articles -> especifica que tabla le pertene
+
+var_articles.user -> muesta el usuario al que pertenece
+var_user.articles -> muestra los articulos que fueron generados por el usuario
