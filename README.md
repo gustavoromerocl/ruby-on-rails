@@ -88,3 +88,9 @@ before_action :authenticate_user! -> valida que la sesión este iniciada antes d
 rails generate devise:views -> trae las vistas de devise para trabajarlas de manera local
 /session/ -> vista de inicio de sesion
 /registration/ -> vista de registro
+
+# relación uno a muchos
+
+**relacion entre usuarios y artículos**
+
+rails generate migration add_user_id_to_articles user:references -> crea un archivo de migracion para crear la relación de uno a muchos entre la tabla user y articles, según la convención el nombre de la migracion debe especificar el id de la tabla y al final el modelo que pertenece a dicha tabla en plural (en plural). Por ultimo especificar el modelo y la palabra reservada references. (no olvidar ejecutar rails db:migrate para confirmar los cambios en el modelo)
