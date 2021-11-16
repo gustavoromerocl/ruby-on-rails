@@ -123,3 +123,9 @@ params.require(:article).permit(:title, :content) -> convencion que corrige vuln
 **arquitectura REST**
 
 resource :articles -> el modelo indicado usa las rutas que de forma automatica genera rails, rutas base de arquitectura REST, este shorthand tambien puede agregar mas rutas usando [do] (rutas) [end] 
+
+# relación muchos a muchos 
+
+**scaffold de categorias**
+
+rails generate scaffold Category title:string color:string -> genera el modelo con su CRUD y vistas
