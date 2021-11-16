@@ -129,3 +129,9 @@ resource :articles -> el modelo indicado usa las rutas que de forma automatica g
 **scaffold de categorias**
 
 rails generate scaffold Category title:string color:string -> genera el modelo con su CRUD y vistas
+
+**tabla asociativa  y relación en los modelos**
+
+rails generate model HasCategory article:references category:references -> se crea el modelo con la referencia de las dos tablas
+
+has many :categories, through: :has_categories -> through indica que accede a categories a través de has_categories
