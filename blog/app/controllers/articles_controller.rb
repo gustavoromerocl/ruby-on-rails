@@ -16,7 +16,9 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        @article = current_user.articles.create(article_params) #title: params[:article][:title], content: params[:article][:content]
+        @article = current_user.articles.create(article_params) 
+        #title: params[:article][:title], content: params[:article][:content]
+        @article.save_categories
 =begin
         @article = Article.create(title: params[:article][:title], 
                                   content: params[:article][:content],
@@ -52,6 +54,6 @@ class ArticlesController < ApplicationController
 
     #parametros fuertes
     def article_params
-        params.require(:article).permit(:title, :content)
+        params.require(:article).permit(:title, :content, :status, :category_elements)
     end
 end

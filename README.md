@@ -1,5 +1,7 @@
 # ruby-on-rails
 
+token git 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
+
 # comandos
 
 rails -v _-> obtiene la version de ror
