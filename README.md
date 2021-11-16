@@ -114,9 +114,12 @@ considerando los visto anteriormente, usando las @variables dentro de las vistas
 @article.user -> muesta el usuario al que pertenece
 @user.articles -> muestra los articulos que fueron generados por el usuario
 
-# parametros fuertes
+# buenas prácticas
 
-**buenas prácticas**
+**parametros fuertes**
 
 params.require(:article).permit(:title, :content) -> convencion que corrige vulnerabilidad en el envío de formularios, indicando que parametros puede recibir la petición, los que no esten indicados rails no los considerará.
 
+**arquitectura REST**
+
+resource :articles -> el modelo indicado usa las rutas que de forma automatica genera rails, rutas base de arquitectura REST, este shorthand tambien puede agregar mas rutas usando [do] (rutas) [end] 

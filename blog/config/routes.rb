@@ -6,13 +6,17 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get "articles/user/:user_id", to: "articles#from_author"
+=begin
+  resource :articles do
+    get "user/:user_id", to: "articles#from_author", on: :collection #:members
+  end
+=end
+  get "articles", to: "articles#index" #todos los articulos
+  get "articles/new", to: "articles#new", as: :new_articles #controlador/accion # vista de formulario create
+  get "articles/:id", to: "articles#show" #mostrar un artículo
+  get "articles/:id/edit", to: "articles#edit" #editar un artículo
+  patch "articles/:id", to: "articles#update", as: :article #actualizar un artículo
+  delete "articles/:id", to: "articles#destroy" #eliminar un nuevo artículo
+  post "articles", to: "articles#create" #crear un nuevo artículo
 
-  get "articles", to: "articles#index"
-  get "articles/new", to: "articles#new", as: :new_articles #controlador/accion
-  get "articles/:id", to: "articles#show" 
-  get "articles/:id/edit", to: "articles#edit"
-  patch "articles/:id", to: "articles#update", as: :article
-  delete "articles/:id", to: "articles#destroy"
-
-  post "articles", to: "articles#create"
 end
