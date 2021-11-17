@@ -10,6 +10,10 @@ class Article < ApplicationRecord
         #convertirlo en arreglo 
         #category_array = category_elements.split(','); 
         #iterar ese arreglo
+        return  has_categories.destroy_all if category_elements.nil? || category_elements.empty? 
+
+        has_categories.where.not(category_id: category_elements).destroy_all
+
         category_elements.each do |category_id|
             #Crear HasCategory <articcle_id:1, category_id:2>_
 
