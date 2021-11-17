@@ -137,3 +137,10 @@ rails generate scaffold Category title:string color:string -> genera el modelo c
 rails generate model HasCategory article:references category:references -> se crea el modelo con la referencia de las dos tablas
 
 has many :categories, through: :has_categories -> through indica que accede a categories a través de has_categories
+
+**evitar registros duplicados**
+
+Modelo.where(modelo:modelo, atributo: atributo) -> consulta si existe
+
+unless -> if inverso, es decir que si la condicion se cumple el codigo no se ejecuta, y se ejecuta cuando no se cumple
+

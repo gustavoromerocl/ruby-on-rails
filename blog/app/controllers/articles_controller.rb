@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
 
     def update
         @article.update(article_params) #title: params[:article][:title], content: params[:article][:content]
-        
+        @article.save_categories
         redirect_to @article
     end
 
