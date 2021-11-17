@@ -144,3 +144,8 @@ Modelo.where(modelo:modelo, atributo: atributo) -> consulta si existe
 
 unless -> if inverso, es decir que si la condicion se cumple el codigo no se ejecuta, y se ejecuta cuando no se cumple
 
+**Check boxes**
+modelo.destroy_all -> Elimina todos los registros de la tabla
+modelo.count -> retorna el numero de registros en la tabla
+checked: @article.categories.include?(category) -> opcion que marca los check box de las categorias que ya posee el objeto
+multiple: true -> indica al formulario que tiene selección multiple 

@@ -30,7 +30,7 @@
     &:first-of-type{
         margin-top:0;
     }
-    input{
+    input:not([type='checkbox']){ //los corchetes acceden a los atributos para validar
         @extend .form-control;
         @extend .bg-light;
     }

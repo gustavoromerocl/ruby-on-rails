@@ -8,9 +8,9 @@ class Article < ApplicationRecord
     def save_categories
         #category elementes -> string 1,2,3...
         #convertirlo en arreglo 
-        category_array = category_elements.split(','); 
+        #category_array = category_elements.split(','); 
         #iterar ese arreglo
-        category_array.each do |category_id|
+        category_elements.each do |category_id|
             #Crear HasCategory <articcle_id:1, category_id:2>_
 
             #valida que el la categoria no exista ya en el articulo, para evitar crear duplicados

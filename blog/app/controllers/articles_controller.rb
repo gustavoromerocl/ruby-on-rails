@@ -13,12 +13,14 @@ class ArticlesController < ApplicationController
 
     def new 
         @article = Article.new #envia un articulo nuevo al formlario de la vista
+        @categories = Category.all
     end
 
     def create
         @article = current_user.articles.create(article_params) 
         #title: params[:article][:title], content: params[:article][:content]
         @article.save_categories
+        
 =begin
         @article = Article.create(title: params[:article][:title], 
                                   content: params[:article][:content],
@@ -30,6 +32,7 @@ class ArticlesController < ApplicationController
 
     def edit
         puts "\n\n\n  #{@article.persisted?} \n\n\n"
+        @categories = Category.all
     end
 
     def update
@@ -54,6 +57,7 @@ class ArticlesController < ApplicationController
 
     #parametros fuertes
     def article_params
-        params.require(:article).permit(:title, :content, :status, :category_elements)
+        params.require(:article).permit(:title, :content, :status, category_elements: [])
+        #cuando se recibe un array, se debe indicar de esta forma
     end
 end
