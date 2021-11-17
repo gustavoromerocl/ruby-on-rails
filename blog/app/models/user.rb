@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :articles #nombre del modelo al que hereda la llave foranea(plural)
+  has_one_attached :avatar
   #admin => true / false
 end

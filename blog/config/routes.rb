@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   resources :categories
+  resources :users, only: [:update] #se puede generar solo una ruta especificada en el parmetro only
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get "/bienvenida", to: "home#index"
 
   root to: "home#index"
+
+  get "perfil", to: "users#edit"
+  
 
   get "articles/user/:user_id", to: "articles#from_author"
 =begin
@@ -19,5 +23,4 @@ Rails.application.routes.draw do
   patch "articles/:id", to: "articles#update" , as: :article #actualizar un artículo
   delete "articles/:id", to: "articles#destroy" #eliminar un nuevo artículo
   post "articles", to: "articles#create" #crear un nuevo artículo
-
 end

@@ -149,3 +149,11 @@ modelo.destroy_all -> Elimina todos los registros de la tabla
 modelo.count -> retorna el numero de registros en la tabla
 checked: @article.categories.include?(category) -> opcion que marca los check box de las categorias que ya posee el objeto
 multiple: true -> indica al formulario que tiene selección multiple 
+
+# aspectos sociales del blog
+
+**subir archivos**
+
+has_one_attached :avatar
+rails generate controller Users edit -> genera el controlador 
+redirect_back(fallback_location: root_path) -> redirecciona a la página anterior
