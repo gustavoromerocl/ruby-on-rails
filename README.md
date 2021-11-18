@@ -157,3 +157,8 @@ multiple: true -> indica al formulario que tiene selección multiple
 has_one_attached :avatar
 rails generate controller Users edit -> genera el controlador 
 redirect_back(fallback_location: root_path) -> redirecciona a la página anterior
+
+**mostrar archivo subido**
+
+if current_user.avatar.attached? confirma que haya un archivo cargado
+image_tag -> tag de imagenes provisto por rails
