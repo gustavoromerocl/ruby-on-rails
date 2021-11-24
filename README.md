@@ -4,6 +4,7 @@ token git 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
 
 # comandos
 
+rails db:seed -> Ejecuta el archivo seed.rb para poblar la base de datos
 rails -v _-> obtiene la version de ror
 rails s -> levanta el servidor
 bundle exec rails webpacker:install -> instala webpacker
@@ -78,7 +79,7 @@ rutas -> users/sing_in .. users/sing_up
 **trabajar con la sesión actual**
 
 user_signed_in? -> retorna true si la sesión esta iniciada
-new_user_regustration_path -> ruta de registro
+new_user_registration_path -> ruta de registro
 new_user_session_path -> ruta de inicio de sesión
 destroy_user_session_path, method: delete -> ruta para cerrar sesion de devise
 current_user.attribute -> accede al usuario actual de la sesión y sus atributos
