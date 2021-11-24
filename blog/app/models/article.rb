@@ -5,6 +5,8 @@ class Article < ApplicationRecord
     has_many :categories, through: :has_categories #through -> a través de 
     attr_accessor :category_elements
 
+    validates :title, :status, presence: true #validacion
+
     before_destroy :before_delete
     after_destroy :after_delete
 
