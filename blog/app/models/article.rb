@@ -44,4 +44,8 @@ class Article < ApplicationRecord
 =end
         end
     end
+
+    scope :publicados, -> { where(:status => 1)}
+    scope :ultimos, -> { order("created_at DESC").limit(3)}
+    # Ex:- scope :active, lambda {where(:active => true)}
 end

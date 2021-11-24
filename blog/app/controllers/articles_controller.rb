@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
     #after_action 
 
     def index
+        @last_articles = Article.publicados.ultimos
         @articles = Article.all.paginate(page: params[:page], per_page: 5)
     end
 
