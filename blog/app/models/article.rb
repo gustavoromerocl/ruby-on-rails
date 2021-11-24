@@ -1,9 +1,20 @@
 class Article < ApplicationRecord
     has_rich_text :content
     belongs_to :user #ingresar donde va el campo adicional o la llave foranea(singular)
-    has_many :has_categories
+    has_many :has_categories, dependent: :delete_all #:destroy
     has_many :categories, through: :has_categories #through -> a través de 
     attr_accessor :category_elements
+
+    before_destroy :before_delete
+    after_destroy :after_delete
+
+    def before_delete
+        puts "Antes de eliminar"
+    end
+
+    def after_delete
+        puts "Despues de eliminar"
+    end
 
     def save_categories
         #category elementes -> string 1,2,3...
